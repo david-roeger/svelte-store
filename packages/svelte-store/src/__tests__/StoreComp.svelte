@@ -7,37 +7,8 @@
       ignored: 1,
     })
 
-      const storeVal = useStore(store, (state) => state.select)
-
-      let renderCount = 0;
-      $: {
-        $storeVal;
-        renderCount += 1;
-      }
+    const storeVal = useStore(store, (state) => state.select)
 </script>
 
 
-<div>
-  <p>Number rendered: {renderCount}</p>
-  <p>Store: {$storeVal}</p>
-  <button
-    on:click={() =>
-      store.setState((v) => ({
-        ...v,
-        select: 10,
-      }))
-    }
-  >
-    Update select
-  </button>
-  <button
-    on:click={() =>
-      store.setState((v) => ({
-        ...v,
-        ignored: 10,
-      }))
-    }
-  >
-    Update ignored
-  </button>
-</div>
+   <p>Store: {$storeVal}</p>

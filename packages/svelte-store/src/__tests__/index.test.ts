@@ -3,8 +3,11 @@ import '@testing-library/jest-dom'
 import { shallow } from '../index'
 import userEvent from '@testing-library/user-event'
 
+
 import StoreComp from './StoreComp.svelte'
-import StoreRenderComp from './StoreRenderComp.svelte'
+import StoreCompRender from './StoreCompRender.svelte'
+
+
 
 const user = userEvent.setup()
 
@@ -15,7 +18,7 @@ describe('useStore', () => {
   })
 
   it('only triggers a re-render when selector state is updated', async () => {
-    const { getByText } = render(StoreRenderComp)
+    const { getByText } = render(StoreCompRender)
     expect(getByText('Store: 0')).toBeInTheDocument()
     expect(getByText('Number rendered: 1')).toBeInTheDocument()
 
