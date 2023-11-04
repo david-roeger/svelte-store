@@ -32,7 +32,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf ./dist && rimraf ./coverage",
+    "clean": "rimraf ./build && rimraf ./coverage",
     "test:types": "svelte-check --tsconfig ./tsconfig.json",
     "test:eslint": "eslint --ext .svelte,.ts ./src",
     "test:lib": "vitest run --coverage",
