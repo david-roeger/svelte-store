@@ -14,19 +14,15 @@
     "url": "https://github.com/sponsors/tannerlinsley"
   },
   "type": "module",
-  "types": "build/legacy/index.d.ts",
-  "main": "build/legacy/index.cjs",
-  "module": "build/legacy/index.js",
+  "types": "build/index.d.ts",
+  "module": "build/index.js",
+  "svelte": "./build/index.js",
   "exports": {
     ".": {
-      "import": {
-        "types": "./build/modern/index.d.ts",
-        "default": "./build/modern/index.js"
-      },
-      "require": {
-        "types": "./build/modern/index.d.cts",
-        "default": "./build/modern/index.cjs"
-      }
+        "types": "./build/index.d.ts",
+        "svelte": "./build/index.js",
+        "import": "./build/index.js",
+        "default": "./build/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -38,7 +34,7 @@
     "test:lib": "vitest run --coverage",
     "test:lib:dev": "pnpm run test:lib --watch",
     "test:build": "publint --strict",
-    "build": "tsup"
+    "build": "svelte-package --input ./src --output ./build"
   },
   "nx": {
     "targets": {
@@ -57,6 +53,7 @@
     "@tanstack/store": "workspace:*"
   },
   "devDependencies": {
+    "@sveltejs/package": "^2.2.2",
     "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "@testing-library/svelte": "^4.0.4",
     "eslint-plugin-svelte": "^2.32.0",
