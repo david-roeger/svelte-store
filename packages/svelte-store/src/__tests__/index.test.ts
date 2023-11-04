@@ -4,21 +4,19 @@ import { shallow } from '../index'
 import userEvent from '@testing-library/user-event'
 
 
-import StoreComp from './StoreComp.svelte'
-import StoreCompRender from './StoreCompRender.svelte'
-
-
+import TestBaseStore from './TestBaseStore.svelte'
+import TestRerender from './TestRerender.svelte'
 
 const user = userEvent.setup()
 
 describe('useStore', () => {
   it('allows us to select state using a selector', async () => {
-    const { getByText } = render(StoreComp)
+    const { getByText } = render(TestBaseStore)
     expect(getByText('Store: 0')).toBeInTheDocument()
   })
 
   it('only triggers a re-render when selector state is updated', async () => {
-    const { getByText } = render(StoreCompRender)
+    const { getByText } = render(TestRerender)
     expect(getByText('Store: 0')).toBeInTheDocument()
     expect(getByText('Number rendered: 1')).toBeInTheDocument()
 
