@@ -49,5 +49,3 @@ ts-perf
 .netlify
 
 nx-cloud.env
-
-.svelte-kit
