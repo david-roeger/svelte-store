@@ -16,6 +16,19 @@ const config = {
         parser: '@typescript-eslint/parser',
       },
     },
+    {
+      files: ['*.svelte.ts'],
+      parser: 'svelte-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+      },
+    },
+    {
+      files: ['*.svelte.js'],
+      parser: 'svelte-eslint-parser',
+      parserOptions: {
+      },
+    },
   ],
 }
 

@@ -1,5 +1,5 @@
 import type { AnyUpdater, Store } from '@tanstack/store';
-import { readable } from 'svelte/store';
+import { untrack } from 'svelte';
 
 export * from '@tanstack/store';
 
@@ -13,18 +13,21 @@ export function useStore<
 	store: Store<TState, TUpdater>,
 	selector: (state: NoInfer<TState>) => TSelected = (d) => d as any
 ) {
-	const slice = readable(selector(store.state), (_, update) => {
-		const unsub = store.subscribe(() => {
-			const data = selector(store.state);
-			update((oldValue) => {
-				if (shallow(oldValue, data)) {
-					return oldValue;
-				}
-				return data;
-			});
+  
+	let slice = $state(selector(store.state))
+  $effect(() => {
+    const unsub = store.subscribe(() => {
+      untrack(() => {
+      	const data = selector(store.state);
+        if(!shallow(slice, data)) {
+          slice = data
+        }
+      })
+		
 		});
 		return () => unsub();
 	});
+		
 
 	return slice;
 }

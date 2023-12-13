@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/svelte'
 import '@testing-library/jest-dom'
-import { shallow } from '../index'
+import { shallow } from '../index.svelte'
 import userEvent from '@testing-library/user-event'
 
 

@@ -4,7 +4,7 @@
       // importing from svelte/internal is not recommended, but it's the only way to get access to afterUpdate in this case
       import { afterUpdate } from 'svelte/internal';
       import { Store } from '@tanstack/store'
-      import { useStore } from ".."
+      import { useStore } from "../index.svelte"
 
       const store = new Store({
         select: 0,
