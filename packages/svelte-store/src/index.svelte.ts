@@ -13,8 +13,10 @@ export function useStore<
 	store: Store<TState, TUpdater>,
 	selector: (state: NoInfer<TState>) => TSelected = (d) => d as any
 ) {
-  
+  // set initial value
 	let slice = $state(selector(store.state))
+
+  // on mount subscribe to store
   $effect(() => {
     const unsub = store.subscribe(() => {
       untrack(() => {
@@ -28,7 +30,6 @@ export function useStore<
 		return () => unsub();
 	});
 		
-
 	return slice;
 }
 
