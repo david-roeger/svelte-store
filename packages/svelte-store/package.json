@@ -15,14 +15,14 @@
   },
   "type": "module",
   "types": "build/index.d.ts",
-  "module": "build/index.js",
-  "svelte": "./build/index.js",
+  "module": "build/index.svelte.js",
+  "svelte": "./build/index.svelte.js",
   "exports": {
     ".": {
         "types": "./build/index.d.ts",
-        "svelte": "./build/index.js",
-        "import": "./build/index.js",
-        "default": "./build/index.js"
+        "svelte": "./build/index.svelte.js",
+        "import": "./build/index.svelte.js",
+        "default": "./build/index.svelte.js"
     },
     "./package.json": "./package.json"
   },
