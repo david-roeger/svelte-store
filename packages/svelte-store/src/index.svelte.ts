@@ -30,7 +30,7 @@ export function useStore<
 		return () => unsub();
 	});
 		
-	return slice;
+	return {get value() { return slice }}
 }
 
 export function shallow<T>(objA: T, objB: T) {

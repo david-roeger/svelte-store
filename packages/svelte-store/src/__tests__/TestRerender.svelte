@@ -19,7 +19,7 @@
 
 
       $effect(() => {
-        storeVal;
+        storeVal.value;
         untrack(() => {
           renderCount++;
         });
@@ -29,7 +29,7 @@
 
 <div>
   <p>Number rendered: {renderCount}</p>
-  <p>Store: {storeVal}</p>
+  <p>Store: {storeVal.value}</p>
   <button
     on:click={() =>
       store.setState((v) => ({
