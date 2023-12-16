@@ -10,7 +10,12 @@ export default defineConfig({
     coverage: { provider: 'istanbul' },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,ts}'],
-    exclude: ['**/node_modules/**', '**/build/**','**/coverage/**','**/.svelte-kit/**',],
+    exclude: [
+      '**/node_modules/**',
+      '**/build/**',
+      '**/coverage/**',
+      '**/.svelte-kit/**',
+    ],
     setupFiles: ['test-setup.ts'],
   },
 })

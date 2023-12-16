@@ -3,7 +3,6 @@ import '@testing-library/jest-dom'
 import { shallow } from '../index'
 import userEvent from '@testing-library/user-event'
 
-
 import TestBaseStore from './TestBaseStore.svelte'
 import TestRerender from './TestRerender.svelte'
 

@@ -1,32 +1,32 @@
-import type { AnyUpdater, Store } from '@tanstack/store';
-import { readable } from 'svelte/store';
+import type { AnyUpdater, Store } from '@tanstack/store'
+import { readable } from 'svelte/store'
 
-export * from '@tanstack/store';
+export * from '@tanstack/store'
 
-export type NoInfer<T> = [T][T extends any ? 0 : never];
+export type NoInfer<T> = [T][T extends any ? 0 : never]
 
 export function useStore<
-	TState,
-	TSelected = NoInfer<TState>,
-	TUpdater extends AnyUpdater = AnyUpdater
+  TState,
+  TSelected = NoInfer<TState>,
+  TUpdater extends AnyUpdater = AnyUpdater,
 >(
-	store: Store<TState, TUpdater>,
-	selector: (state: NoInfer<TState>) => TSelected = (d) => d as any
+  store: Store<TState, TUpdater>,
+  selector: (state: NoInfer<TState>) => TSelected = (d) => d as any,
 ) {
-	const slice = readable(selector(store.state), (_, update) => {
-		const unsub = store.subscribe(() => {
-			const data = selector(store.state);
-			update((oldValue) => {
-				if (shallow(oldValue, data)) {
-					return oldValue;
-				}
-				return data;
-			});
-		});
-		return () => unsub();
-	});
+  const slice = readable(selector(store.state), (_, update) => {
+    const unsub = store.subscribe(() => {
+      const data = selector(store.state)
+      update((oldValue) => {
+        if (shallow(oldValue, data)) {
+          return oldValue
+        }
+        return data
+      })
+    })
+    return () => unsub()
+  })
 
-	return slice;
+  return slice
 }
 
 export function shallow<T>(objA: T, objB: T) {
