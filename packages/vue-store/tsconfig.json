@@ -2,8 +2,18 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "types": ["vitest/globals"],
-    "noUnusedLocals": false
+    "jsxImportSource": "vue",
+    "moduleResolution": "Bundler",
+    "types": ["vue/jsx"],
+    "paths": {
+      "@tanstack/store": ["../store/src"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", ".eslintrc.cjs", "tsup.config.js"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".eslintrc.cjs",
+    "test-setup.ts",
+    "vite.config.ts"
+  ]
 }
