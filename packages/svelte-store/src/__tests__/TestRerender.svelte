@@ -4,7 +4,8 @@
       // importing from svelte/internal is not recommended, but it's the only way to get access to afterUpdate in this case
       import { afterUpdate } from 'svelte/internal';
       import { Store } from '@tanstack/store'
-      import { useStore } from ".."
+      import { useStore } from "../index.svelte"
+    import { untrack } from 'svelte'
 
       const store = new Store({
         select: 0,
@@ -14,19 +15,21 @@
       const storeVal = useStore(store, (state) => state.select)
 
 
-      let renderCount = 0;
+      let renderCount = $state(0);
 
 
-      afterUpdate(() => {
-        console.log('afterUpdate');
-        renderCount++;
+      $effect(() => {
+        storeVal.value;
+        untrack(() => {
+          renderCount++;
+        });
       });
 </script>
 
 
 <div>
   <p>Number rendered: {renderCount}</p>
-  <p>Store: {$storeVal}</p>
+  <p>Store: {storeVal.value}</p>
   <button
     on:click={() =>
       store.setState((v) => ({

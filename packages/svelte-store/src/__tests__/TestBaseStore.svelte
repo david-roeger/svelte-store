@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Store } from '@tanstack/store'
-    import { useStore } from ".."
+    import { useStore } from "../index.svelte"
 
     const store = new Store({
       select: 0,
@@ -11,4 +11,4 @@
 </script>
 
 
-   <p>Store: {$storeVal}</p>
+<p>Store: {storeVal.value}</p>
