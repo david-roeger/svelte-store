@@ -66,7 +66,7 @@
     "rimraf": "^5.0.5",
     "sherif": "^0.7.0",
     "solid-js": "^1.7.8",
-    "svelte": "^5.0.0",
+    "svelte": "^5.0.0-next.138",
     "typescript": "^5.2.2",
     "typescript49": "npm:typescript@4.9",
     "typescript50": "npm:typescript@5.0",
