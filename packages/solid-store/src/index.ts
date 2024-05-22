@@ -1,7 +1,7 @@
-import type { AnyUpdater, Store } from '@tanstack/store'
-import type { Accessor} from 'solid-js';
 import { onCleanup } from 'solid-js'
 import { createStore, reconcile } from 'solid-js/store'
+import type { AnyUpdater, Store } from '@tanstack/store'
+import type { Accessor } from 'solid-js'
 
 export * from '@tanstack/store'
 
@@ -16,7 +16,7 @@ export function useStore<
   selector: (state: NoInfer<TState>) => TSelected = (d) => d as any,
 ): Accessor<TSelected> {
   const [slice, setSlice] = createStore({
-    value: selector(store.state)
+    value: selector(store.state),
   })
 
   const unsub = store.subscribe(() => {

@@ -21,6 +21,22 @@ npm install @tanstack/vue-store
 
 TanStack Store is compatible with Vue 2 and 3.
 
+## Angular
+
+```sh
+npm install @tanstack/angular-store
+```
+
+TanStack Store is compatible with Angular 16+
+
+## SolidJS
+
+```sh
+npm install @tanstack/solid-store
+```
+
+TanStack Store is compatible with Solid and SolidStart.
+
 
 ## Svelte
 
@@ -28,4 +44,4 @@ TanStack Store is compatible with Vue 2 and 3.
 npm install @tanstack/svelte-store
 ```
 
-TanStack Store is compatible with Svelte 4
+TanStack Store is compatible with Svelte 5

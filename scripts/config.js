@@ -11,27 +11,26 @@ export const packages = [
   {
     name: '@tanstack/store',
     packageDir: 'packages/store',
-    entries: ['main', 'module', 'types'],
   },
   {
     name: '@tanstack/react-store',
     packageDir: 'packages/react-store',
-    entries: ['main', 'module', 'types'],
   },
   {
     name: '@tanstack/vue-store',
     packageDir: 'packages/vue-store',
-    entries: ['main', 'module', 'types'],
   },
   {
     name: '@tanstack/solid-store',
     packageDir: 'packages/solid-store',
-    entries: ['main', 'module', 'types'],
+  },
+  {
+    name: '@tanstack/angular-store',
+    packageDir: 'packages/angular-store',
   },
   // {
   //   name: '@tanstack/svelte-store',
   //   packageDir: 'packages/svelte-store',
-  //   entries: ['main', 'module', 'types'],
   // },
 ]
 
